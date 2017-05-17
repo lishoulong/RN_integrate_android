@@ -1,0 +1,23 @@
+{
+  "name": "reactnativeinit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node node_modules/react-native/local-cli/cli.js start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "lishoulong@github.com"
+  },
+  "keywords": [
+    "rn"
+  ],
+  "author": "lishoulong",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.0.0-alpha.6",
+    "react-native": "^0.44.0"
+  }
+}
