@@ -1,32 +1,23 @@
 'use strict';
 
 import React from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { AppRegistry } from 'react-native';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
-class HelloWorld extends React.Component {
+import AppReducer from './js-navigation/reducers';
+import AppWithNavigationState from './js-navigation/navigators/AppNavigator';
+
+class ReduxExampleApp extends React.Component {
+  store = createStore(AppReducer);
+
   render() {
-   return (
-      <View style={styles.container}>
-        <Text style={styles.hello}>Hello, World</Text>
-      </View>
-    )
+    return (
+      <Provider store={this.store}>
+        <AppWithNavigationState />
+      </Provider>
+    );
   }
 }
-var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  hello: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-});
 
-AppRegistry.registerComponent('HelloWorld', () => HelloWorld);
+AppRegistry.registerComponent('ReduxExample', () => ReduxExampleApp);

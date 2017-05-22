@@ -11,6 +11,6 @@ public class ReactNativeActivity extends ReactActivity {
     @Nullable
     @Override
     protected String getMainComponentName(){
-        return "HelloWorld";
+        return "ReduxExample";
     }
 }
