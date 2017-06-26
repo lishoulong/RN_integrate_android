@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node node_modules/react-native/local-cli/cli.js start"
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "basebundle": "react-native bundle --entry-file base.android.js --bundle-output ./base.bundle --manifest-output ./base.manifest.json",
+    "businessbundle": "react-native bundle --entry-file index.android.js --bundle-output ./index1.bundle --manifest-file ./base.manifest.json --id-prefix index1"
   },
   "repository": {
     "type": "git",
