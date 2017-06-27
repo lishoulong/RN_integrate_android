@@ -340,5 +340,6 @@ es6 + redux + react-redux + redux-thunk + react-navigation
 
 #### 与native交互的处理
 1.NativeModules
-native暴露出来的模块，可以通过NativeModules对象取到。
+* native暴露出来的模块，可以通过NativeModules对象取到。
+
 2.有些场景需要native直接传递某些参数到RN端，iOS可以通过调用initWithBundleURL，在initialProperties参数传参，android通过getLaunchOptions把参数写入返回的bundle中。在RN工程的根文件（例如app.js），通过this.props.key（key是属性名字）直接取到。
