@@ -240,9 +240,9 @@ es6 + redux + react-redux + redux-thunk + react-navigation
 ### 2.项目心得
 #### 这个项目踩坑最多的地方还是在react-navigation的使用上：
 1.同一页面参数不同，多次回退始终进入同一个页面：
-发现原因是stackNavigator导航管理的页面，在切换的时候，不是按照堆栈的push，pop形式，而是通过移动指针到对应的页面，同时标记此页面为激活状态。
-比如详情页页面a／cateId=“xy”，当传入不同cateId参数“cd”跳转到同一详情页a／cateId=“cd”的时候，页面是正常改变的，但是回退的时候，第一次是回到a／cateId=“cd”，再次回退还是回到a／cateId=“cd”。
-解决办法是通过componentWillReceiveProps,shouldComponentUpdate以及componentDidUpdate，当nextProps中的params.cateId和当前的params.cateId不同的时候，触发页面的render。
+* 发现原因是stackNavigator导航管理的页面，在切换的时候，不是按照堆栈的push，pop形式，而是通过移动指针到对应的页面，同时标记此页面为激活状态。
+* 比如详情页页面a/cateId/xy，当传入不同cateId参数“cd”跳转到同一详情页a/cateId/cd的时候，页面是正常改变的，但是回退的时候，第一次是回到a/cateId/cd，再次回退还是回到a/cateId/cd。
+* 解决办法是通过componentWillReceiveProps,shouldComponentUpdate以及componentDidUpdate，当nextProps中的params.cateId和当前的params.cateId不同的时候，触发页面的render。
 
 2.实现swipe滑动切换RN页面而不是退出RN：
 官方文档介绍，react-navigation在根组件的navigationOptions设置中添加gesturesEnabled: true，就可以实现滑动切换切换页面的需求，但是在真机上测试不生效。通过读源码了解到，react-navigation内部是通过引入RN的PanResponder手势识别系统来实现滑动的机制，这个系统里面封装了类似于手势的生命周期，只有在onMoveShouldSetPanResponder返回true的时候，才能执行接下来的手势动作。具体执行方法如下：
