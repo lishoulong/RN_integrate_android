@@ -50,10 +50,6 @@
 
 > "start": "node node_modules/react-native/local-cli/cli.js start"
 
-粘贴后的package.json文件内容如下：
-
-![](http://img.58cdn.com.cn/zhuanzhuan/zzRNBlog/packageafterpaste.png)
-
 下一步，在根目录下创建index.android.js文件并把如下代码粘贴到其中：
 
         'use strict';
