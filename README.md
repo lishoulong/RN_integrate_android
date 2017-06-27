@@ -3,9 +3,8 @@
 > 初次做RN项目，我们选择做了一个逻辑相对简单的转转app内部的帮助中心项目。整个项目有4个页面用的RN，其他页面走的是native提供的统跳协议，跳转到对应的native页面或者是H5页面。
 
 ## 整合RN到android项目中
-> react-native cli提供的init指令，可以帮助我们创建一个RN的工程，但是很多场景下RN都是移植进入原生android或者iOS中。例如如何实现，在android页面，点击一个按钮进入RN页面呢？
-
-![](http://img.58cdn.com.cn/zhuanzhuan/zzRNBlog/rnNativeandroid.png)
+> react-native cli提供的init指令，可以帮助我们创建一个RN的工程，但是很多场景下RN都是移植进入原生android或者iOS中。例如应该如何实现，在android页面，点击一个按钮进入RN页面呢？
+<img src="http://img.58cdn.com.cn/zhuanzhuan/zzRNBlog/rnNativeandroid.png" style="width:60%;height:auto;" />
 
 下面是具体的实现过程。
 
