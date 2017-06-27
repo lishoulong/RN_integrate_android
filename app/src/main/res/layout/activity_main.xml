@@ -12,8 +12,9 @@
     tools:context="com.example.lifeifei.reactnativeinit.MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="This is TextView"
+        android:gravity="center"
         android:id="@+id/start_rn_btn"/>
 </RelativeLayout>
