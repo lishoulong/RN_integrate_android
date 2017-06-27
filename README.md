@@ -245,7 +245,8 @@ es6 + redux + react-redux + redux-thunk + react-navigation
 * 解决办法是通过componentWillReceiveProps,shouldComponentUpdate以及componentDidUpdate，当nextProps中的params.cateId和当前的params.cateId不同的时候，触发页面的render。
 
 2.实现swipe滑动切换RN页面而不是退出RN：
-官方文档介绍，react-navigation在根组件的navigationOptions设置中添加gesturesEnabled: true，就可以实现滑动切换切换页面的需求，但是在真机上测试不生效。通过读源码了解到，react-navigation内部是通过引入RN的PanResponder手势识别系统来实现滑动的机制，这个系统里面封装了类似于手势的生命周期，只有在onMoveShouldSetPanResponder返回true的时候，才能执行接下来的手势动作。具体执行方法如下：
+* 官方文档介绍，react-navigation在根组件的navigationOptions设置中添加gesturesEnabled: true，就可以实现滑动切换切换页面的需求，但是在真机上测试不生效。
+* 通过读源码了解到，react-navigation内部是通过引入RN的PanResponder手势识别系统来实现滑动的机制，只有在onMoveShouldSetPanResponder返回true的时候，才能执行接下来的手势动作。具体执行方法如下：
 
         ```
         onMoveShouldSetPanResponder: (
@@ -279,8 +280,9 @@ es6 + redux + react-redux + redux-thunk + react-navigation
 因为GESTURE_RESPONSE_DISTANCE_HORIZONTAL过小，导致始终return false，把这个值从20改到60就可以了。
 
 3.页面切换实现左右切换的动画效果
-StackNavigator(RouteConfigs, StackNavigatorConfig)；
-在第二个参数StackNavigatorConfig的配置中，可以传入mode: 'card',这个参数会在native端获取默认的滑动效果，iOS端默认的是左右切换的效果，但是android端默认的是上下切换效果。幸好react-navigation提供了一个transitionConfig接口，可以实现定制化滑屏效果。不知道该如何定制么？没有关系，源码中已经在iOS端帮我们实现，稍微修改一下代码就可以了。
+* StackNavigator(RouteConfigs, StackNavigatorConfig)；
+在第二个参数StackNavigatorConfig的配置中，可以传入mode: 'card',这个参数会在native端获取默认的滑动效果，iOS端默认的是左右切换的效果，但是android端默认的是上下切换效果。
+* 幸好react-navigation提供了一个transitionConfig接口，可以实现定制化滑屏效果。不知道该如何定制么？没有关系，源码中已经在iOS端帮我们实现，稍微修改一下代码就可以了。
 
     ```
     transitionConfig: () => ({
@@ -308,7 +310,8 @@ StackNavigator(RouteConfigs, StackNavigatorConfig)；
 
 #### FlatList问题：
 1.ListHeaderComponent，ListFooterComponent
-当FlatList有并列的组件的时候，会出现，其他并列的组件位置是固定的（类似于css中的position fixed），页面只有FlatList区域是可以滚动的，为了实现这个页面是可以滚动的，需要把FlatList上面的组件加入FlatList的ListHeaderComponent属性中，同时把其下面的组件加入到ListFooterComponent中。
+* 当FlatList有并列的组件的时候，会出现，其他并列的组件位置是固定的（类似于css中的position fixed），页面只有FlatList区域是可以滚动的，为了实现这个页面是可以滚动的，需要把FlatList上面的组件加入FlatList的ListHeaderComponent属性中，同时把其下面的组件加入到ListFooterComponent中。
+
 2.通过利用getItemLayout，把高度提前设定好，可以较少一次RN计算高度的render。
 
 #### 图片问题：
