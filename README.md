@@ -4,7 +4,7 @@
 
 ## 整合RN到android项目中
 > react-native cli提供的init指令，可以帮助我们创建一个RN的工程，但是很多场景下RN都是移植进入原生android或者iOS中。例如应该如何实现，在android页面，点击一个按钮进入RN页面呢？
-<img src="http://img.58cdn.com.cn/zhuanzhuan/zzRNBlog/rnNativeandr.png" />
+<img src="http://img.58cdn.com.cn/zhuanzhuan/zzRNBlog/rnNativeandr.png" style="width:50%;height:auto;" />
 
 下面是具体的实现过程。
 
